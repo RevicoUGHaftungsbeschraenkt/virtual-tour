@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>360 Viewer Test</title>
+  <meta charset="UTF-8">
+  <title>360 Panorama Viewer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
       height: 100%;
-      overflow: hidden;
+      margin: 0;
+      background: black;
     }
     #viewer {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
     }
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/photo-sphere-viewer@5/dist/photo-sphere-viewer.css" />
-  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
-  <script src="https://unpkg.com/photo-sphere-viewer@5/dist/photo-sphere-viewer.js"></script>
+
+  <!-- Photo Sphere Viewer v4 (simpler and stable) -->
+  <link rel="stylesheet" href="https://unpkg.com/photo-sphere-viewer@4.2.0/dist/photo-sphere-viewer.min.css">
 </head>
 <body>
   <div id="viewer"></div>
+
+  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+  <script src="https://unpkg.com/photo-sphere-viewer@4.2.0/dist/photo-sphere-viewer.min.js"></script>
   <script>
     const viewer = new PhotoSphereViewer.Viewer({
-      container: document.getElementById('viewer'),
       panorama: 'panoramas/pano1.jpg',
-      defaultYaw: 0,
-      touchmoveTwoFingers: false,
-      mousewheel: true,
+      container: document.getElementById('viewer'),
       navbar: [
+        'autorotate',
         'zoom',
-        'fullscreen',
-        'caption'
-      ]
+        'fullscreen'
+      ],
+      loadingImg: null,
+      defaultYaw: 0
     });
   </script>
 </body>
