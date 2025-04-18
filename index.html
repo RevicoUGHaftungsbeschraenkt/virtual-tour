@@ -6,36 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
-      height: 100%;
       margin: 0;
-      background: black;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
     }
     #viewer {
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
     }
   </style>
 
-  <!-- Photo Sphere Viewer v4 (simpler and stable) -->
-  <link rel="stylesheet" href="https://unpkg.com/photo-sphere-viewer@4.2.0/dist/photo-sphere-viewer.min.css">
+  <!-- Photo Sphere Viewer v4.0.5 - known stable version -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.5/dist/photo-sphere-viewer.min.css">
 </head>
 <body>
   <div id="viewer"></div>
 
-  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
-  <script src="https://unpkg.com/photo-sphere-viewer@4.2.0/dist/photo-sphere-viewer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.0.5/dist/photo-sphere-viewer.min.js"></script>
   <script>
+    console.log("Viewer script starting...");
+
     const viewer = new PhotoSphereViewer.Viewer({
-      panorama: 'panoramas/pano1.jpg',
       container: document.getElementById('viewer'),
+      panorama: 'panoramas/pano1.jpg',
       navbar: [
-        'autorotate',
         'zoom',
-        'fullscreen'
+        'fullscreen',
+        'autorotate'
       ],
-      loadingImg: null,
-      defaultYaw: 0
+      caption: 'Demo Panorama',
+      loadingImg: null
     });
+
+    console.log("Viewer initialized.");
   </script>
 </body>
 </html>
