@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>360 Viewer - Stable Build</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>360 Panorama Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.1.0/dist/photo-sphere-viewer.min.css" />
   <style>
     html, body {
-      height: 100%;
       margin: 0;
+      padding: 0;
+      height: 100%;
       background: #000;
     }
     #viewer {
@@ -15,9 +17,6 @@
       height: 100vh;
     }
   </style>
-
-  <!-- Photo Sphere Viewer v4.1.0 and Three.js v0.122.0 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.1.0/dist/photo-sphere-viewer.min.css" />
 </head>
 <body>
   <div id="viewer"></div>
@@ -25,20 +24,17 @@
   <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/photo-sphere-viewer@4.1.0/dist/photo-sphere-viewer.min.js"></script>
   <script>
-    console.log("Initializing viewer...");
+    console.log('Attempting to load panorama...');
+
     const viewer = new PhotoSphereViewer.Viewer({
       container: document.getElementById('viewer'),
-      panorama: 'panoramas/pano1.jpg',
-      navbar: [
-        'zoom',
-        'fullscreen',
-        'autorotate'
-      ],
-      defaultLat: 0.3,
-      caption: 'Twinmotion Panorama',
+      panorama: 'https://revicoughaftungsbeschraenkt.github.io/virtual-tour/panoramas/pano1.jpg',
+      navbar: ['zoom', 'fullscreen', 'autorotate'],
+      caption: 'pano1.jpg',
       loadingImg: null
     });
-    console.log("Viewer initialized.");
+
+    console.log('Viewer initialized.');
   </script>
 </body>
 </html>
